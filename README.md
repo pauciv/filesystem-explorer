@@ -24,7 +24,7 @@
 - You cannot use file third-party libraries
 - You will not be able to use global variables in PHP.
 - You must use GIT
-- You must use the PHP > v7
+- You must use the PHP > v8
 - Create a clear and orderly directory structure
 - Both the code and the comments must be written in English
 - Use the camelCase code style to define variables and functions
