@@ -1,4 +1,4 @@
-`#html` `#css` `#js` `#php` `#master-in-software-engineering`
+`#html` `#css` `#js` `#php` `#master-in-software-development`
 
 # PHP Local FileSystem explorer <!-- omit in toc -->
 
@@ -40,7 +40,7 @@ First of all you must fork this project into your GitHub account.
 
 To create a fork on GitHub is as easy as clicking the “fork” button on the repository page.
 
-<img src="https://docs.github.com/assets/images/help/repository/fork_button.jpg" alt="Fork on GitHub" width='450'>
+<img src="https://docs.github.com/assets/cb-23088/images/help/repository/fork_button.png" alt="Fork on GitHub" width='450'>
 
 ## Technologies used
 
@@ -51,22 +51,6 @@ To create a fork on GitHub is as easy as clicking the “fork” button on the r
 \* JS
 
 \* PHP
-
-## Project delivery
-
-To deliver this project you must follow the steps indicated in the document:
-
-- [Submitting a solution](https://www.notion.so/Submitting-a-solution-524dab1a71dd4b96903f26385e24cdb6)
-
-- You must include the project documentation in PDF format.
-- You must include a presentation in PDF format explaining:
-  - Comparison of the original design (Wireframe) with the final result of the project
-  - Comparison of the use case diagram with the actions that the user can finally perform
-  - Comparison of the original use case diagram with the final user actions
-  - What lessons you’ve learned during this project
-  - What problems have you encountered when developing this project?
-  - How you have organized and distributed the tasks
-
 
 ## Resources
 
