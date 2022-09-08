@@ -17,12 +17,24 @@
     </form>
 
     <form action="./upload-file.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="file-to-upload" />
+
         <label>
-            <input type="file" name="file-to-upload" />
+            Choose a folder:
+            <input type="text" name="target-folder" />
         </label>
-        <input type="text" name="target-folder" />
+
         <input type="submit" value="Upload File" name="submit" />
     </form>
+
+    <ul>
+        <?php require_once "list-items.php"; ?>
+    </ul>
+
+    <?php
+    // echo __DIR__ . "<br>";
+    // echo __FILE__ . "<br>";
+    ?>
 
 </body>
 
