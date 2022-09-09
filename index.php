@@ -5,11 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Filesystem Explorer</title>
 </head>
 
 <body>
-    <h1>Filesystem Explorer</h1>
+
+    <header>
+        <h1>FsEx</h1>
+        <form action="">
+            <input type="text" />
+            <input type="submit" value="Search" />
+        </form>
+    </header>
+
 
     <form action="./create-folder.php" method="post">
         <input type="text" name="folder-name" />
@@ -21,20 +30,24 @@
 
         <label>
             Choose a folder:
-            <input type="text" name="target-folder" />
+            <input type="text" name="target-folder" required />
         </label>
 
         <input type="submit" value="Upload File" name="submit" />
     </form>
 
-    <ul>
-        <?php require_once "list-items.php"; ?>
-    </ul>
+    <main>
+        <section class="root-section">
+            <ul>
+                <?php require_once "list-folders.php"; ?>
+            </ul>
+        </section>
 
-    <?php
-    // echo __DIR__ . "<br>";
-    // echo __FILE__ . "<br>";
-    ?>
+        <section class="folders-section"></section>
+
+        <section class="info-section"></section>
+
+    </main>
 
 </body>
 

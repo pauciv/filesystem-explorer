@@ -1,6 +1,6 @@
 <?php
 
-require_once "index.php";
+// require_once "index.php";
 
 // Create a folder inside root 
 $folderName = $_POST["folder-name"];

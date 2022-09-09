@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    padding: 2%;
+}
+
+header {
+    display: flex;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.root-section,
+.folders-section,
+.info-section {
+    border: 1px solid rgb(150, 150, 150);
+    padding: 1%;
+    width: 30%;
+}
+
+.root-section li,
+.folders-section li,
+.info-section li {
+    list-style: none;
+}
+
+.root-section .folder {
+    border: 1px solid rgb(199, 199, 199);
+    height: 30px;
+    margin: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.root-section .folder-name {
+    border: 1px solid rgb(199, 199, 199);
+    height: 100%;
+    margin: 1%;
+    display: flex;
+    /* justify-content: flex-end; */
+}
+
+.root-section .rename-delete a {
+    margin: 6px;
+}
