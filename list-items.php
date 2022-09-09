@@ -1,11 +1,11 @@
 <?php
 
-$root = scandir("./root/");
+$rootFolders = scandir("./root/");
 // print_r($root);
 // echo "<pre>";
 // var_dump($root);
 // echo "</pre>";
 
-foreach ($root as $item) {
-    echo "<li><a href=''>$item</a></li>";
+foreach ($rootFolders as $folder) {
+    echo "<li><a href=''>$folder</a></li>";
 }
