@@ -1,3 +1,7 @@
+<?php 
+require_once "functions.php"; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,35 +23,39 @@
         </form>
     </header>
 
-
-    <form action="./create-folder.php" method="post">
-        <input type="text" name="folder-name" />
-        <input type="submit" value="Create Folder" name="submit" />
-    </form>
-
-    <form action="./upload-file.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="file-to-upload" />
-
-        <label>
-            Choose a folder:
-            <input type="text" name="target-folder" required />
-        </label>
-
-        <input type="submit" value="Upload File" name="submit" />
-    </form>
-
     <main>
         <section class="root-section">
             <ul>
-                <?php require_once "list-folders.php"; ?>
+                <?php listItems($rootFolders); ?>
             </ul>
         </section>
 
         <section class="folders-section"></section>
 
         <section class="info-section"></section>
-
     </main>
+
+    <form action="./functions.php" method="post">
+        <input type="text" name="folder-to-create" />
+        <input type="submit" value="Create Folder" name="create" />
+    </form>
+
+    <form action="./functions.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="file-to-upload" />
+        <p>Choose a folder:</p>
+        <select name="target-folder" id="" require>
+            <?php selectItem($rootFolders); ?>
+        </select>
+        <input type="submit" value="Upload File" name="upload-file" /> <!-- antes era name="submit" pero creo que no lo estabamos usando. -->
+    </form>
+
+    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]?>">
+        <p>Select Folder to Delete:</p>
+        <select name="folder-to-delete" id="">
+            <?php selectItem($rootFolders); ?>
+        </select>
+        <input type="submit" value="Delete" name="delete">
+    </form>
 
 </body>
 

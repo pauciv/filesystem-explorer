@@ -11,6 +11,8 @@ body {
 
 header {
     display: flex;
+    border: 1px solid grey;
+
 }
 
 main {
@@ -51,4 +53,9 @@ main {
 
 .root-section .rename-delete a {
     margin: 6px;
+}
+
+form {
+    /* border: 1px solid grey; */
+    margin: 20px 0;
 }
