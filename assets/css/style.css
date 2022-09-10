@@ -11,8 +11,11 @@ body {
 
 header {
     display: flex;
-    border: 1px solid grey;
+    align-items: center;
+}
 
+h1 {
+    margin-right: 30px;
 }
 
 main {
@@ -36,7 +39,7 @@ main {
 }
 
 .root-section .folder {
-    border: 1px solid rgb(199, 199, 199);
+    /* border: 1px solid rgb(199, 199, 199); */
     height: 30px;
     margin: 1%;
     display: flex;
@@ -48,7 +51,6 @@ main {
     height: 100%;
     margin: 1%;
     display: flex;
-    /* justify-content: flex-end; */
 }
 
 .root-section .rename-delete a {
@@ -56,6 +58,5 @@ main {
 }
 
 form {
-    /* border: 1px solid grey; */
     margin: 20px 0;
 }

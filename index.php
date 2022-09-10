@@ -41,6 +41,7 @@ require_once "functions.php";
     </form>
 
     <form action="./functions.php" method="post" enctype="multipart/form-data">
+        <p>Select a file:</p>
         <input type="file" name="file-to-upload" />
         <p>Choose a folder:</p>
         <select name="target-folder" id="" require>
@@ -50,7 +51,7 @@ require_once "functions.php";
     </form>
 
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]?>">
-        <p>Select Folder to Delete:</p>
+        <p>Select a folder to Delete:</p>
         <select name="folder-to-delete" id="">
             <?php selectItem($rootFolders); ?>
         </select>
