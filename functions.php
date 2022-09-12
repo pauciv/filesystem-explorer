@@ -7,7 +7,7 @@ $rootFolders = scandir("./root/");
 if (isset($_POST["folder-to-create"])) {
     $folderToCreate = $_POST["folder-to-create"];
     mkdir("./root/" . "$folderToCreate", 0777);
-    header("Location: index.php?foldercreated");
+    header("Location: index.php?action=foldercreated"); // podemos obtener el action con el get.
 }
 
 // UPLOAD FILE FUNCTION ________________________________________________________
@@ -36,7 +36,7 @@ if (isset($_POST["upload-file"])) {
         $fileDestination = "./root/$targetFolder/$fileName";
         #uniqid()// para prevenir que alguien sobreescriba un archivo al subir uno con el mismo nombre.
         move_uploaded_file($fileTmpName, $fileDestination); //location, destination
-        header("Location: index.php?fileuploaded");
+        header("Location: index.php?action=fileuploaded");
     } else {
         echo "Error!";
     }
@@ -46,23 +46,30 @@ if (isset($_POST["upload-file"])) {
 // echo __DIR__ . "<br>";
 // echo __FILE__ . "<br>";
 
+$urlName = $_GET["name"];
+$folderContent = scandir("./root/$urlName");
+
 function listItems($items) {
+    // $urlName = $_GET["name"];
+
     foreach ($items as $item) {
         if ($item != "." && $item != "..") {
             ?>
-    
+
             <div class="folder">
-                <li><a href=""><?php echo $item ?></a></li>
+                <li><a href="index.php?name=<?php echo $item ?>"><?php echo $item ?></a></li>
     
-                <div class="rename-delete">
+                <!-- <div class="rename-delete">
                     <a href="" class="rename-<?php echo $item ?>">rename</a>
                     <a href="delete-folder.php" class="delelte-<?php echo $item ?>">delete</a>
-                </div>
+                </div> -->
             </div>
-    
+
             <?php
         }
     }
+    // $folderContent = scandir("./root/$urlName");
+    // listItems($folderContent);
 }
 // _____________________________________________________________________________
 
@@ -80,10 +87,23 @@ function selectItem($items) {
         }
     }
 }
-
 // _____________________________________________________________________________
 
-// DELETE FOLDERS FUNCTION ____________________________________________________
+// RENAME FOLDER _______________________________________________________________
+if (isset($_POST["rename"])) {
+    $folderToRename = "./root/" . $_POST["folder-to-rename"]; 
+    $newFolderName = "./root/" . $_POST["new-folder-name"];
+
+    // $folderToRename = "./root/My Files"; 
+    // $newFolderName = "./root/Docs";
+    var_dump($folderToRename);
+
+    rename($folderToRename, $newFolderName);
+    header("Location: index.php?action=folderrenamed");
+}
+// _____________________________________________________________________________
+
+// DELETE FOLDERS FUNCTION _____________________________________________________
 function deleteDir($ruta) { // el parámetro tiene que incluir la ruta del directorio a eliminar
     foreach(glob($ruta . "/*") as $elemento) { // /*: busca todos los archivos y carpetas del directorio a eliminar
         if (is_dir($elemento)) { // si el elemento es un directorio
@@ -99,11 +119,11 @@ function deleteDir($ruta) { // el parámetro tiene que incluir la ruta del direc
 $msg = null;
 if (isset($_POST["delete"])) {
     $ruta = "root/" . $_POST["folder-to-delete"]; // $_POST["path"] --> 
-    var_dump($ruta);
+    #var_dump($ruta);
 
     if(is_dir($ruta)) {
         deleteDir($ruta);  // se ejecuta la función
-        $msg = "Enhorabuena directorio $ruta eliminado correctamente";
+        header("Location: index.php?action=folderdeleted");
     } else {
         $msg = "El directorio $ruta no existe";
     }

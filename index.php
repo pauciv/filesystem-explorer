@@ -30,7 +30,11 @@ require_once "functions.php";
             </ul>
         </section>
 
-        <section class="folders-section"></section>
+        <section class="folders-section">
+            <ul>
+                <?php listItems($folderContent); ?>
+            </ul>
+        </section>
 
         <section class="info-section"></section>
     </main>
@@ -51,11 +55,20 @@ require_once "functions.php";
     </form>
 
     <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]?>">
+        <p>Select a folder to Rename:</p>
+        <select name="folder-to-rename" id="">
+            <?php selectItem($rootFolders); ?>
+        </select>
+        <input type="text" name="new-folder-name" />
+        <input type="submit" value="Rename" name="rename" />
+    </form>
+
+    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]?>">
         <p>Select a folder to Delete:</p>
         <select name="folder-to-delete" id="">
             <?php selectItem($rootFolders); ?>
         </select>
-        <input type="submit" value="Delete" name="delete">
+        <input type="submit" value="Delete" name="delete" />
     </form>
 
 </body>
