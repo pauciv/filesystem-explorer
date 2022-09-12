@@ -21,7 +21,9 @@ if (isset($_POST["upload-file"])) {
 
     $fileName = $file["name"];
     $fileTmpName = $file["tmp_name"]; // tmp_name: como todavía no hemos subido el archivo, lo guarda temporalmente en el ordenador.
-    # $fileSize = $file["size"];
+    $open = fopen("img6.jpg", "r");
+    $size = $filesize("img6.jpg");
+    echo $size;
     $fileError = $file["error"];
     # $fileType = $file["type"];
     # $fileType = $file["full_path"];
