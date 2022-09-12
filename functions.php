@@ -32,7 +32,7 @@ if (isset($_POST["upload-file"])) {
 
     if ($fileError === 0) {
         $targetFolder = $_POST["target-folder"];
-        echo "$targetFolder";
+        # echo "$targetFolder";
         $fileDestination = "./root/$targetFolder/$fileName";
         #uniqid()// para prevenir que alguien sobreescriba un archivo al subir uno con el mismo nombre.
         move_uploaded_file($fileTmpName, $fileDestination); //location, destination
@@ -46,12 +46,7 @@ if (isset($_POST["upload-file"])) {
 // echo __DIR__ . "<br>";
 // echo __FILE__ . "<br>";
 
-$urlName = $_GET["name"];
-$folderContent = scandir("./root/$urlName");
-
 function listItems($items) {
-    // $urlName = $_GET["name"];
-
     foreach ($items as $item) {
         if ($item != "." && $item != "..") {
             ?>
@@ -68,9 +63,65 @@ function listItems($items) {
             <?php
         }
     }
-    // $folderContent = scandir("./root/$urlName");
-    // listItems($folderContent);
 }
+
+// Subcarpetas *********************************************
+$urlName = $_GET["name"];
+#$folderContent = scandir("./root/$urlName"); // TENDRÍA QUE PODER REDEFINIR FOLDER CONTENT !!!!!
+$path = "./root/$urlName";
+$folderContent = scandir($path);
+
+// PRUEBASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+
+function listSub($items, $p) {
+    foreach ($items as $item) {
+        if ($item != "." && $item != "..") {
+            ?>
+
+            <div class="folder">
+                <li><a href="index.php?name=<?php echo $p ?>"><?php echo $item ?></a></li>
+            </div>
+
+            <?php
+        }
+    }
+    // $p = $p . "/" . $_GET["name"]; 
+}
+
+# $openFolderContent = scandir("./root." . $_GET["name"]);
+
+function listSubItems($path) {
+    // if (isset($_GET["name"])) {
+        $folderName = $_GET["name"];
+
+        // if (is_dir($folderName)) {
+            $folderOpened = opendir($path);
+            while ($item = readdir($folderOpened)) {
+                $newPath = $path."/".$item;
+                if (is_dir($newPath) && $item != "." && $item != "..") {
+                    echo "Found Folder $newPath <br>";
+                    listSubItems($newPath);
+                } else {
+                    ?>
+
+                    <!-- <div class="folder">
+                        <li><a href="index.php?name=<?php echo $item ?>"><?php echo $item ?></a></li>
+                    </div> -->
+
+                    <?php
+                }
+            }
+
+            
+        // }
+    // }
+}
+
+$path = "/";
+echo "$path <br>";
+listSubItems($path);
+// PRUEBASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+
 // _____________________________________________________________________________
 
 // SELECT ITEMS FUNCTION _______________________________________________________
