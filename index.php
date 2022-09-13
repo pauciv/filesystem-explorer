@@ -36,10 +36,6 @@ require_once "functions.php";
 
         <section class="folders-section">
             <ul>
-<<<<<<< HEAD
-                <?php listItems($folderContent); ?>
-                <?php // listSub($folderContent, $path); ?>
-=======
                 <?php 
                     if (isset($_GET["name"])) {
                         $urlName = $_GET["name"];
@@ -48,7 +44,6 @@ require_once "functions.php";
                         // createFolder();
                     }
                 ?>
->>>>>>> pau
             </ul>
         </section>
 
