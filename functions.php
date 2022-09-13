@@ -47,22 +47,31 @@ if (isset($_POST["upload-file"])) {
 // LIST ITEMS FUNCTION _________________________________________________________
 // echo __DIR__ . "<br>";
 // echo __FILE__ . "<br>";
-
 function listItems($items) {
-    foreach ($items as $item) {
+    //TODO Primer fer SPLIT de $_GET["name"]
+    //TODO Agafar l'ultima posició de larray que sha fet split
+    //TODO Fer un IF per a saber quin tipus de fitxer es
+    //TODO Si es un fitxer png / jpg faràs un echo de <img src="$_GET["name"]" 
+    if (isset($_GET["name"])){
+        explode("." , $_GET["name"] );
+        var_dump(explode("." , $_GET["name"]));
+        $fin= explode("." , $_GET["name"]);
+        $fine= end($fin);
+        if($fine === 'png'|| $fine ==='jpg'){
+            echo '<img src="$_GET["name"]"';
+    }
+} foreach ($items as $item) {
         if ($item != "." && $item != "..") {
-            ?>
+        ?>
 
             <div class="folder">
                 <li><a href="index.php?name=<?php echo $item ?>"><?php echo $item ?></a></li>
-    
-                <!-- <div class="rename-delete">
-                    <a href="" class="rename-<?php echo $item ?>">rename</a>
-                    <a href="delete-folder.php" class="delelte-<?php echo $item ?>">delete</a>
-                </div> -->
-            </div>
-
+        </div>
             <?php
+             
+               
+    
+             
         }
     }
 }
