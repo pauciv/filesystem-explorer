@@ -32,8 +32,8 @@ require_once "functions.php";
 
         <section class="folders-section">
             <ul>
-                <?php // listItems($folderContent); ?>
-                <?php listSub($folderContent, $path); ?>
+                <?php listItems($folderContent); ?>
+                <?php // listSub($folderContent, $path); ?>
             </ul>
         </section>
 
