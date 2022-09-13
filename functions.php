@@ -1,27 +1,38 @@
 <?php
 
 // CREATE FOLDER (inside root) ________________________________________________
-// if (isset($_POST["folder-to-create"])) {
-//     $folderToCreate = $_POST["folder-to-create"];
-//     mkdir("./root/" . "$folderToCreate", 0777);
-//     header("Location: index.php?action=foldercreated"); // podemos obtener el action con el get.
-// }
+if (isset($_POST["folder-to-create"])) {
+    $folderToCreate = $_POST["folder-to-create"];
+    mkdir("./root/" . "$folderToCreate", 0777);
+    header("Location: index.php?action=foldercreated"); // podemos obtener el action con el get.
+}
+
+// PRUEBAS ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+function createRootFolder() {
+    if (isset($_POST["folder-to-create"])) {
+        $folderToCreate = $_POST["folder-to-create"];
+        mkdir("./root/" . "$folderToCreate", 0777);
+        #header("Location: index.php?action=foldercreated"); // podemos obtener el action con el get.
+    }
+}
 
 function createFolder($path) {
-    if (isset($_GET["folder-to-create"])) {
-        $folderToCreate = $_GET["folder-to-create"];
-        mkdir("$path/$folderToCreate", 0777);
+    if (isset($_POST["folder-to-create"])) {
+        $folderToCreate = $_POST["folder-to-create"];
+        mkdir("./root/$path/$folderToCreate", 0777);
     }
     
     ?>
 
-    <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
+    <!-- <form action="<?php //echo $_SERVER["PHP_SELF"]?>" method="get">
         <input type="text" name="folder-to-create" />
         <input type="submit" value="Create Folder" name="create" />
-    </form>
+    </form> -->
 
     <?php
 }
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // UPLOAD FILE FUNCTION ________________________________________________________
 if (isset($_POST["upload-file"])) {
@@ -76,6 +87,15 @@ function listItems($items) {
             <?php
         }
     }
+    ?>
+
+    <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
+        <input type="text" name="folder-to-create" />
+        <input type="submit" value="Create Folder" name="create" />
+    </form>
+
+    <?php
+    createRootFolder();
 }
 
 function listSubItems($items) {
@@ -96,10 +116,23 @@ function listSubItems($items) {
         }
     }
 
+    ?>
+
+    <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
+        <input type="text" name="folder-to-create" />
+        <input type="submit" value="Create Folder" name="create" />
+    </form>
+
+    <?php
+
+    if (isset($_GET["name"])) {
+        $url = $_GET["name"];
+    }
     // if (isset($_GET["folder-to-create"])) {
-    //     $url = $_GET["folder-to-create"];
+    //     $newFolder = $_GET["folder-to-create"];
     // }
-    // createFolder($url);
+
+    createFolder($url);
 }
 // _____________________________________________________________________________
 
