@@ -26,14 +26,24 @@ require_once "functions.php";
     <main>
         <section class="root-section">
             <ul>
-                <?php listItems($rootFolders); ?>
+                <?php 
+                    $rootFolders = scandir("./root/");
+                    listItems($rootFolders); 
+                    // createFolder();
+                ?>
             </ul>
         </section>
 
         <section class="folders-section">
             <ul>
-                <?php // listItems($folderContent); ?>
-                <?php listSub($folderContent, $path); ?>
+                <?php 
+                    if (isset($_GET["name"])) {
+                        $urlName = $_GET["name"];
+                        $folderContent = scandir("./root/$urlName");
+                        listSubItems($folderContent); 
+                        // createFolder();
+                    }
+                ?>
             </ul>
         </section>
 
