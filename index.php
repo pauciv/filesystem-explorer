@@ -29,7 +29,6 @@ require_once "functions.php";
                 <?php 
                     $rootFolders = scandir("./root/");
                     listItems($rootFolders); 
-                    // createFolder();
                 ?>
             </ul>
         </section>
@@ -41,7 +40,6 @@ require_once "functions.php";
                         $urlName = $_GET["name"];
                         $folderContent = scandir("./root/$urlName");
                         listSubItems($folderContent); 
-                        // createFolder();
                     }
                 ?>
             </ul>
@@ -50,37 +48,32 @@ require_once "functions.php";
         <section class="info-section"></section>
     </main>
 
-    <form action="./functions.php" method="post">
-        <input type="text" name="folder-to-create" />
-        <input type="submit" value="Create Folder" name="create" />
-    </form>
-
-    <form action="./functions.php" method="post" enctype="multipart/form-data">
+    <!-- <form action="./functions.php" method="post" enctype="multipart/form-data">
         <p>Select a file:</p>
         <input type="file" name="file-to-upload" />
         <p>Choose a folder:</p>
         <select name="target-folder" id="" require>
-            <?php selectItem($rootFolders); ?>
+            <?php //selectItem($rootFolders); ?>
         </select>
         <input type="submit" value="Upload File" name="upload-file" /> <!-- antes era name="submit" pero creo que no lo estabamos usando. -->
-    </form>
+    <!-- </form> -->
 
-    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]?>">
+    <!-- <form method="POST" action="<?php //echo $_SERVER["PHP_SELF"]?>">
         <p>Select a folder to Rename:</p>
         <select name="folder-to-rename" id="">
-            <?php selectItem($rootFolders); ?>
+            <?php //selectItem($rootFolders); ?>
         </select>
         <input type="text" name="new-folder-name" />
         <input type="submit" value="Rename" name="rename" />
-    </form>
+    </form> -->
 
-    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]?>">
+    <!-- <form method="POST" action="<?php //echo $_SERVER["PHP_SELF"]?>">
         <p>Select a folder to Delete:</p>
         <select name="folder-to-delete" id="">
-            <?php selectItem($rootFolders); ?>
+            <?php //selectItem($rootFolders); ?>
         </select>
         <input type="submit" value="Delete" name="delete" />
-    </form>
+    </form> -->
 
 </body>
 
