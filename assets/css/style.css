@@ -9,6 +9,10 @@ body {
     padding: 2%;
 }
 
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -19,7 +23,7 @@ h1 {
 }
 
 h2 {
-    font-size: 12px;
+    font-size: 20px;
     margin-bottom: 14px;
 }
 
@@ -34,6 +38,17 @@ main {
 .info-section {
     border: 1px solid rgb(150, 150, 150);
     padding: 1%;
+}
+
+.root-section {
+    width: 30%;
+}
+
+.folders-section {
+    width: 60%;
+}
+
+.info-section {
     width: 30%;
 }
 
@@ -41,12 +56,12 @@ main {
 .folders-section li,
 .info-section li {
     list-style: none;
+    margin: 2%;
 }
 
 .root-section .folder {
     /* border: 1px solid rgb(199, 199, 199); */
     height: 30px;
-    margin: 1%;
     display: flex;
     justify-content: space-between;
 }
@@ -64,4 +79,10 @@ main {
 
 form {
     margin: 20px 0;
+}
+
+.delete-button {
+    background-color: rgb(240, 147, 147);
+    border: 1px solid rgb(77, 77, 77);
+    padding: 2px;
 }
