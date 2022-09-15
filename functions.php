@@ -109,9 +109,8 @@ if (isset($_POST["upload-file"])) { // si no coge el isset, usar !empty en lugar
 
     $fileName = $file["name"];
     $fileTmpName = $file["tmp_name"]; // tmp_name: como todavía no hemos subido el archivo, lo guarda temporalmente en el ordenador.
-    $open = fopen("img6.jpg", "r");
-    $size = $filesize("img6.jpg");
-    echo $size;
+    # $open = fopen("img6.jpg", "r");
+    # $size = $filesize("img6.jpg");
     $fileError = $file["error"];
     # $fileType = $file["type"];
     # $fileType = $file["full_path"];
