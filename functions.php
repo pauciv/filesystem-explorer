@@ -32,7 +32,7 @@ function listItems($items) {
 }
 
 function listSubItems($items) {
-    $path = $_GET["name"];
+    // $path = $_GET["name"];
     ?>
     
     <h2><?php echo $_GET["name"]; ?></h2>
